@@ -4,15 +4,17 @@ import { sc, globalFonts, globalFontSize, themeColors } from '../styles/global-s
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useState } from 'react/cjs/react.development';
 import { MyWorkouts } from '../screens/modal/my-workouts';
+import { BodyCalendarCurrent } from '../screens/modal/body-calender-current';
 
 
 
 export const TabMenu = () =>{
+    const [visible, setvisible] = useState(false);
     return(
         <View>
             <View style={styles.tabContainer}>
                 <View style={styles.menuContainer}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => setvisible(true)} >
                         <View style={styles.menuContainer}>
                             <FontAwesome5 name="calendar-alt" {...menuIconStyling} />
                             <Text style={styles.menuHeading}>Body Calendar</Text>
@@ -31,7 +33,7 @@ export const TabMenu = () =>{
                 </View>
             </View>
             
-
+        <BodyCalendarCurrent visible={visible} closeCalendar={false} />
         </View>
     )
 }

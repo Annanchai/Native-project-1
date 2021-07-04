@@ -93,10 +93,11 @@ const currentDate = () => {
 currentDate();
 
 
-export const BodyCalendar = ({children}) => {
+export const BodyCalendar = (props) => {
+    const [showBodyCalendar, setShowBodyCalendar] = useState(false)
     
     return(
-        <Modal transparent={true} visible>
+        <Modal transparent={true} visible={props.visible}>
             <View style={{...styles.overlay}}>
                 <View style={styles.container}>
                     <View 
@@ -107,7 +108,7 @@ export const BodyCalendar = ({children}) => {
                             <FontAwesome5 name="calendar-alt" {...calendarIconStyling} />
                             <Text style={styles.heading}>BODY CALENDAR</Text> 
                         </View>
-                        <TouchableOpacity onPress={() => setCloseCalendar(false)}>
+                        <TouchableOpacity onPress={() => setShowBodyCalendar(false)} >
                             <AntDesign name="closecircle" {...closeIconStylingSmall} />
                         </TouchableOpacity>
                         
@@ -126,7 +127,7 @@ export const BodyCalendar = ({children}) => {
                         
                     </View>
                     <View style={styles.childrenContainer}>
-                        {children}
+                        {props.children}
                     </View>
                 </View>  
             </View>

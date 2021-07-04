@@ -5,9 +5,9 @@ import { themeColors, sc, globalFonts } from '../../styles/global-styles';
 import { BodyCalendar } from '../../components/body-calendar';
 import { ButtonType1 } from '../../components/buttons';
 
-export const BodyCalendarCurrent = () => {
+export const BodyCalendarCurrent = (props) => {
     return (
-        <BodyCalendar>
+        <BodyCalendar visible={props.visible} closeCalendar={props.closeCalendar} >
             <View style={styles.container}>
                 <View style={styles.row}>
                     <View style={styles.textContainer}>
